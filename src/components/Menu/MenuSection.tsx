@@ -10,19 +10,9 @@ import DishShowcaseModal from "./DishShowcaseModal";
 const SCROLL_OFFSET = 132;
 const TRUST_BADGES = ["HALAL CERTIFIED", "PREMIUM INGREDIENTS", "FRESHLY MADE", "MADE WITH LOVE"];
 
-const FILTERS = [
-  { id: "all", label: "ALL ITEMS" },
-  { id: "spicy", label: "🔥 SPICY" },
-  { id: "vegan", label: "🌱 VEGAN" },
-  { id: "beef", label: "🥩 BEEF & SMASH" },
-  { id: "chicken", label: "🍗 CHICKEN" },
-];
-
 export default function MenuSection() {
   const [activeId, setActiveId] = useState(menuCategories[0].id);
   const [selectedDish, setSelectedDish] = useState<MenuItem | null>(null);
-  const [searchQuery, setSearchQuery] = useState("");
-  const [activeFilter, setActiveFilter] = useState("all");
   const [viewMode, setViewMode] = useState<"single" | "all">("single");
   const visibleIds = useRef(new Set<string>());
   const isClickingRef = useRef(false);
@@ -55,8 +45,6 @@ export default function MenuSection() {
 
   const handleSelectCategory = (id: string) => {
     setActiveId(id);
-    setActiveFilter("all");
-    setSearchQuery("");
     isClickingRef.current = true;
     setTimeout(() => {
       isClickingRef.current = false;
@@ -76,49 +64,13 @@ export default function MenuSection() {
     }
   };
 
-  // Filter categories and items based on search and tag filters
-  const filteredCategories = useMemo(() => {
-    const query = searchQuery.toLowerCase().trim();
-
-    return menuCategories
-      .map((cat) => {
-        const filteredItems = cat.items.filter((item) => {
-          // Search query check
-          const matchesQuery =
-            !query ||
-            item.name.toLowerCase().includes(query) ||
-            item.description?.toLowerCase().includes(query);
-
-          // Tag filter check
-          let matchesTag = true;
-          if (activeFilter === "spicy") matchesTag = Boolean(item.spicy);
-          else if (activeFilter === "vegan")
-            matchesTag = cat.id === "vegan" || item.name.toLowerCase().includes("vegan");
-          else if (activeFilter === "beef")
-            matchesTag = cat.id === "smash" || cat.id === "classic-beef" || cat.id === "double-patty";
-          else if (activeFilter === "chicken")
-            matchesTag = cat.id === "chicken-burgers" || cat.id === "chicken-bites";
-
-          return matchesQuery && matchesTag;
-        });
-
-        return { ...cat, items: filteredItems };
-      })
-      .filter((cat) => cat.items.length > 0);
-  }, [searchQuery, activeFilter]);
-
-  const totalMatches = useMemo(
-    () => filteredCategories.reduce((sum, c) => sum + c.items.length, 0),
-    [filteredCategories]
-  );
-
   const displayedCategories = useMemo(() => {
-    if (viewMode === "single" && !searchQuery && activeFilter === "all") {
-      const target = filteredCategories.find((c) => c.id === activeId);
-      return target ? [target] : filteredCategories.slice(0, 1);
+    if (viewMode === "single") {
+      const target = menuCategories.find((c) => c.id === activeId);
+      return target ? [target] : menuCategories.slice(0, 1);
     }
-    return filteredCategories;
-  }, [filteredCategories, viewMode, activeId, searchQuery, activeFilter]);
+    return menuCategories;
+  }, [viewMode, activeId]);
 
   return (
     <section id="menu" className="relative bg-char-900 py-24 sm:py-32">
@@ -143,9 +95,9 @@ export default function MenuSection() {
             {TRUST_BADGES.map((badge) => (
               <span
                 key={badge}
-                className="rounded-full border border-white/10 bg-char-800 px-3.5 py-1.5 text-[9px] sm:text-[10px] tracking-[0.18em] text-off-dim font-medium shadow-sm"
+                className="rounded-full border border-white/10 bg-white/5 px-3.5 py-1 text-[11px] font-semibold tracking-wider text-off-dim"
               >
-                {badge}
+                ✓ {badge}
               </span>
             ))}
           </div>
@@ -158,46 +110,6 @@ export default function MenuSection() {
           onSelectCategory={handleSelectCategory}
         />
 
-        {/* Search & Filter Bar */}
-        <div className="mb-10 flex flex-col md:flex-row items-stretch md:items-center justify-between gap-4 rounded-2xl border border-white/10 bg-char-800 p-4 sm:p-5 shadow-xl">
-          {/* Search Input */}
-          <div className="relative flex-1">
-            <span className="absolute left-4 top-1/2 -translate-y-1/2 text-off-dim text-sm">🔍</span>
-            <input
-              type="text"
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              placeholder="Search burgers, sides, shakes & desserts..."
-              className="w-full rounded-xl border border-white/10 bg-char-900/80 py-3 fill-none pl-11 pr-4 text-sm text-off placeholder-off-dim focus:border-crush focus:outline-none transition-colors"
-            />
-            {searchQuery && (
-              <button
-                onClick={() => setSearchQuery("")}
-                className="absolute right-4 top-1/2 -translate-y-1/2 text-xs text-off-dim hover:text-off"
-              >
-                ✕ CLEAR
-              </button>
-            )}
-          </div>
-
-          {/* Quick Filter Tag Chips */}
-          <div className="flex flex-wrap items-center gap-2">
-            {FILTERS.map((f) => (
-              <button
-                key={f.id}
-                onClick={() => setActiveFilter(f.id)}
-                className={`rounded-full border px-3.5 py-2 text-xs font-semibold tracking-wider whitespace-nowrap shrink-0 transition-all ${
-                  activeFilter === f.id
-                    ? "border-crush bg-crush text-black font-bold shadow-md shadow-crush/20"
-                    : "border-white/10 bg-char-900/60 text-off-dim hover:border-crush/50 hover:text-off"
-                }`}
-              >
-                {f.label}
-              </button>
-            ))}
-          </div>
-        </div>
-
         <SauceStrip />
       </div>
 
@@ -207,7 +119,7 @@ export default function MenuSection() {
       {/* View Mode Toggle */}
       <div id="menu-items-anchor" className="mx-auto max-w-6xl px-5 sm:px-8 pt-4 pb-6 flex items-center justify-between border-b border-white/10">
         <span className="text-xs tracking-[0.2em] text-crush font-extrabold uppercase">
-          {viewMode === "single" && !searchQuery && activeFilter === "all"
+          {viewMode === "single"
             ? menuCategories.find((c) => c.id === activeId)?.label || "MENU ITEMS"
             : "FULL MENU"}
         </span>
@@ -216,8 +128,6 @@ export default function MenuSection() {
           <button
             onClick={() => {
               setViewMode("single");
-              setActiveFilter("all");
-              setSearchQuery("");
               const el = document.getElementById("menu-items-anchor");
               if (el) {
                 const top = el.getBoundingClientRect().top + window.scrollY - 140;
@@ -235,8 +145,6 @@ export default function MenuSection() {
           <button
             onClick={() => {
               setViewMode("all");
-              setActiveFilter("all");
-              setSearchQuery("");
               const el = document.getElementById("menu-items-anchor");
               if (el) {
                 const top = el.getBoundingClientRect().top + window.scrollY - 140;
@@ -255,31 +163,13 @@ export default function MenuSection() {
       </div>
 
       <div className="mx-auto max-w-6xl px-5 sm:px-8">
-        {displayedCategories.length > 0 ? (
-          displayedCategories.map((category) => (
-            <CategorySection
-              key={category.id}
-              category={category}
-              onSelectItem={(item) => setSelectedDish(item)}
-            />
-          ))
-        ) : (
-          <div className="my-16 text-center py-16 border border-white/10 rounded-2xl bg-char-800">
-            <p className="text-2xl font-display text-off mb-2">NO DISHES MATCHED YOUR SEARCH</p>
-            <p className="text-sm text-off-dim mb-6">
-              Try searching for something else or clearing your filters.
-            </p>
-            <button
-              onClick={() => {
-                setSearchQuery("");
-                setActiveFilter("all");
-              }}
-              className="rounded-full bg-crush px-6 py-2.5 text-xs font-bold tracking-widest text-black"
-            >
-              RESET FILTERS ({totalMatches})
-            </button>
-          </div>
-        )}
+        {displayedCategories.map((category) => (
+          <CategorySection
+            key={category.id}
+            category={category}
+            onSelectItem={(item) => setSelectedDish(item)}
+          />
+        ))}
       </div>
 
       {/* 3D Dish Showcase Modal */}
