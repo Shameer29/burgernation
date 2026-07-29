@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import IngredientLabel from "./IngredientLabel";
 import { INGREDIENTS } from "./ingredients";
 
@@ -13,14 +13,30 @@ export default function ScrollStage() {
   const labelRefs = useRef<Array<HTMLDivElement | null>>([]);
   const framesRef = useRef<HTMLImageElement[]>([]);
   const currentFrameRef = useRef(-1);
-  const [loadedCount, setLoadedCount] = useState(0);
-  const [ready, setReady] = useState(false);
 
   const draw = (index: number) => {
     const canvas = canvasRef.current;
-    const img = framesRef.current[index];
     const ctx = canvas?.getContext("2d");
-    if (!canvas || !ctx || !img || !img.complete || img.naturalWidth === 0) return;
+    if (!canvas || !ctx) return;
+
+    // Find the closest loaded frame if the exact index is not ready yet
+    let img = framesRef.current[index];
+    if (!img || !img.complete || img.naturalWidth === 0) {
+      for (let offset = 1; offset <= TOTAL_FRAMES; offset++) {
+        const prev = framesRef.current[index - offset];
+        if (prev && prev.complete && prev.naturalWidth > 0) {
+          img = prev;
+          break;
+        }
+        const next = framesRef.current[index + offset];
+        if (next && next.complete && next.naturalWidth > 0) {
+          img = next;
+          break;
+        }
+      }
+    }
+
+    if (!img || !img.complete || img.naturalWidth === 0) return;
 
     const cw = canvas.width;
     const ch = canvas.height;
@@ -42,24 +58,39 @@ export default function ScrollStage() {
 
   useEffect(() => {
     let cancelled = false;
-    let loaded = 0;
     const imgs: HTMLImageElement[] = new Array(TOTAL_FRAMES);
 
-    for (let i = 0; i < TOTAL_FRAMES; i++) {
+    const loadFrame = (idx: number) => {
       const img = new Image();
-      img.src = framePath(i + 1);
-      img.onload = img.onerror = () => {
-        loaded++;
+      img.src = framePath(idx + 1);
+      img.onload = () => {
         if (cancelled) return;
-        setLoadedCount(loaded);
-        if (loaded === TOTAL_FRAMES) setReady(true);
+        if (idx === 0 || currentFrameRef.current < 0) {
+          currentFrameRef.current = 0;
+          draw(0);
+        }
       };
-      imgs[i] = img;
+      imgs[idx] = img;
+    };
+
+    // Load first 15 frames immediately for instant responsiveness
+    for (let i = 0; i < Math.min(15, TOTAL_FRAMES); i++) {
+      loadFrame(i);
     }
+
+    // Load remaining frames asynchronously in background after initial page load
+    const timer = setTimeout(() => {
+      if (cancelled) return;
+      for (let i = 15; i < TOTAL_FRAMES; i++) {
+        loadFrame(i);
+      }
+    }, 120);
+
     framesRef.current = imgs;
 
     return () => {
       cancelled = true;
+      clearTimeout(timer);
     };
   }, []);
 
@@ -82,7 +113,6 @@ export default function ScrollStage() {
   }, []);
 
   useEffect(() => {
-    if (!ready) return;
     let rafId = 0;
 
     const onScroll = () => {
@@ -135,7 +165,7 @@ export default function ScrollStage() {
       window.removeEventListener("scroll", onScroll);
       if (rafId) cancelAnimationFrame(rafId);
     };
-  }, [ready]);
+  }, []);
 
   return (
     <div
@@ -160,21 +190,6 @@ export default function ScrollStage() {
 
         {/* Hero Frame Canvas */}
         <canvas ref={canvasRef} className="absolute inset-0 block h-full w-full object-center z-10" />
-
-        {/* Loading Spinner */}
-        {!ready && (
-          <div className="absolute inset-0 z-50 flex items-center justify-center bg-char-900">
-            <div className="flex flex-col items-center gap-4">
-              <span className="text-xs tracking-[0.4em] text-crush font-bold">PREPARING HERITAGE STACK...</span>
-              <div className="h-1 w-48 rounded-full bg-white/10 overflow-hidden">
-                <div
-                  className="h-full bg-crush transition-[width] duration-200 shadow-md shadow-crush"
-                  style={{ width: `${(loadedCount / TOTAL_FRAMES) * 100}%` }}
-                />
-              </div>
-            </div>
-          </div>
-        )}
 
         {/* Hero Text & Logo Header */}
         <div

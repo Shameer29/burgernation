@@ -111,6 +111,7 @@ export default function SauceStrip() {
                     alt={sauce.name}
                     className="relative z-10 max-h-14 sm:max-h-20 w-auto object-contain drop-shadow-md transition-transform duration-300 group-hover:scale-110"
                     loading="lazy"
+                    decoding="async"
                   />
                 </div>
 

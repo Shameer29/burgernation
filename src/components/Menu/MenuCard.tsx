@@ -99,6 +99,8 @@ export default function MenuCard({
               transform: isHovered ? "translateZ(45px) translateY(-10px)" : "translateZ(0px)",
               transformStyle: "preserve-3d",
             }}
+            loading="lazy"
+            decoding="async"
           />
 
           {/* Hover Floating Embers & Particle Wisps */}

@@ -105,6 +105,7 @@ export default function MenuItemCard({
               transformStyle: "preserve-3d",
             }}
             loading="lazy"
+            decoding="async"
           />
 
           {/* Sparkle Embers on Hover */}

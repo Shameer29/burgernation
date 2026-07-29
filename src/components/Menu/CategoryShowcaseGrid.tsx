@@ -77,6 +77,8 @@ export default function CategoryShowcaseGrid({
                   src={meta.image}
                   alt={cat.label}
                   className="relative z-10 max-h-16 sm:max-h-20 w-auto object-contain drop-shadow-[0_8px_15px_rgba(0,0,0,0.8)] transition-transform duration-300 group-hover:scale-110"
+                  loading="lazy"
+                  decoding="async"
                 />
               </div>
 
