@@ -140,13 +140,26 @@ export default function MenuCard({
             )}
           </div>
 
-          <div className="mt-6 pt-4 border-t border-white/10 flex items-center justify-between">
-            <span className="text-xs tracking-[0.2em] text-green-400 font-extrabold uppercase">
-              FREE SAUCE INCLUDED
-            </span>
-            <span className="inline-flex items-center gap-2 rounded-full border border-crush/40 bg-crush px-5 py-2.5 text-xs font-extrabold tracking-widest text-black uppercase transition-all duration-300 shadow-[0_0_20px_rgba(234,88,12,0.4)] group-hover:scale-105">
-              CUSTOMIZE & ORDER &rarr;
-            </span>
+          {/* Responsive Action Button Footer */}
+          <div className="mt-6 pt-4 border-t border-white/10 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+            <div className="flex items-center gap-2">
+              <span className="inline-flex items-center gap-1.5 rounded-lg bg-green-500/15 border border-green-500/30 px-3 py-1 text-[11px] font-bold text-green-400 uppercase tracking-wider">
+                <svg className="w-3.5 h-3.5 text-green-400 shrink-0" viewBox="0 0 20 20" fill="currentColor">
+                  <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                </svg>
+                FREE SAUCE INCLUDED
+              </span>
+            </div>
+
+            <button
+              type="button"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-crush to-orange-500 px-6 py-3 text-xs sm:text-sm font-extrabold tracking-wider text-black uppercase shadow-lg shadow-crush/30 transition-all duration-300 hover:brightness-110 hover:shadow-crush/50 active:scale-95 group-hover:scale-105"
+            >
+              <span>ORDER NOW</span>
+              <svg className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+              </svg>
+            </button>
           </div>
         </div>
       </div>
