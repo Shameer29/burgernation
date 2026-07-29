@@ -25,6 +25,7 @@ export default function MenuSection() {
   const [activeFilter, setActiveFilter] = useState("all");
   const [viewMode, setViewMode] = useState<"single" | "all">("single");
   const visibleIds = useRef(new Set<string>());
+  const isClickingRef = useRef(false);
 
   useEffect(() => {
     if (viewMode === "single") return;
@@ -41,6 +42,7 @@ export default function MenuSection() {
             visibleIds.current.delete(entry.target.id);
           }
         });
+        if (isClickingRef.current) return;
         const firstVisible = menuCategories.find((c) => visibleIds.current.has(c.id));
         if (firstVisible) setActiveId(firstVisible.id);
       },
@@ -53,6 +55,13 @@ export default function MenuSection() {
 
   const handleSelectCategory = (id: string) => {
     setActiveId(id);
+    setActiveFilter("all");
+    setSearchQuery("");
+    isClickingRef.current = true;
+    setTimeout(() => {
+      isClickingRef.current = false;
+    }, 1200);
+
     if (viewMode === "single") {
       const el = document.getElementById("menu-items-anchor");
       if (el) {
@@ -177,7 +186,7 @@ export default function MenuSection() {
               <button
                 key={f.id}
                 onClick={() => setActiveFilter(f.id)}
-                className={`rounded-full border px-3.5 py-2 text-xs font-semibold tracking-wider transition-all ${
+                className={`rounded-full border px-3.5 py-2 text-xs font-semibold tracking-wider whitespace-nowrap shrink-0 transition-all ${
                   activeFilter === f.id
                     ? "border-crush bg-crush text-black font-bold shadow-md shadow-crush/20"
                     : "border-white/10 bg-char-900/60 text-off-dim hover:border-crush/50 hover:text-off"
@@ -205,7 +214,16 @@ export default function MenuSection() {
 
         <div className="flex items-center gap-1.5 bg-char-800 p-1 rounded-full border border-white/10">
           <button
-            onClick={() => setViewMode("single")}
+            onClick={() => {
+              setViewMode("single");
+              setActiveFilter("all");
+              setSearchQuery("");
+              const el = document.getElementById("menu-items-anchor");
+              if (el) {
+                const top = el.getBoundingClientRect().top + window.scrollY - 140;
+                window.scrollTo({ top, behavior: "smooth" });
+              }
+            }}
             className={`rounded-full px-3.5 py-1.5 text-xs font-bold tracking-wider uppercase transition-all ${
               viewMode === "single"
                 ? "bg-crush text-black shadow-md"
@@ -215,7 +233,16 @@ export default function MenuSection() {
             CATEGORY VIEW
           </button>
           <button
-            onClick={() => setViewMode("all")}
+            onClick={() => {
+              setViewMode("all");
+              setActiveFilter("all");
+              setSearchQuery("");
+              const el = document.getElementById("menu-items-anchor");
+              if (el) {
+                const top = el.getBoundingClientRect().top + window.scrollY - 140;
+                window.scrollTo({ top, behavior: "smooth" });
+              }
+            }}
             className={`rounded-full px-3.5 py-1.5 text-xs font-bold tracking-wider uppercase transition-all ${
               viewMode === "all"
                 ? "bg-crush text-black shadow-md"

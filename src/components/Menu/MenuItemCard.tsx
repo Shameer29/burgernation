@@ -153,7 +153,7 @@ export default function MenuItemCard({
 
             <button
               type="button"
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-xl bg-white/10 border border-white/15 px-5 py-2.5 text-xs sm:text-sm font-extrabold tracking-wider text-off uppercase shadow-sm transition-all duration-300 group-hover:bg-crush group-hover:border-crush group-hover:text-black group-hover:shadow-crush/30 active:scale-95"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-xl bg-white/10 border border-white/15 px-5 py-2.5 text-xs sm:text-sm font-extrabold tracking-wider text-off uppercase whitespace-nowrap shrink-0 shadow-sm transition-all duration-300 group-hover:bg-crush group-hover:border-crush group-hover:text-black group-hover:shadow-crush/30 active:scale-95"
             >
               <span>ORDER NOW</span>
               <svg className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">

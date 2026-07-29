@@ -192,8 +192,8 @@ export const menuCategories: MenuCategory[] = [
   },
   {
     id: "chips",
-    label: "Chips",
-    title: "Chips Nation",
+    label: "Fries & Chips",
+    title: "FRIES & CHIPS NATION",
     items: [
       { id: "plain-chips", name: "Plain Chips", price: "£2.99", image: "/dishes/plain-chips.png" },
       { id: "peri-peri-chips", name: "Peri-Peri Chips", price: "£2.99", spicy: 1, image: "/dishes/peri-peri-chips.png" },

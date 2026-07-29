@@ -12,7 +12,7 @@ const CATEGORY_ICONS: Record<string, { image: string; tag: string }> = {
   kids: { image: "/dishes/kids-cheeseburger.png", tag: "KIDS NATION" },
   salad: { image: "/dishes/greek-salad.png", tag: "SALADS" },
   sides: { image: "/dishes/mozzarella-sticks.png", tag: "SIDES" },
-  chips: { image: "/dishes/peri-peri-chips.png", tag: "CHIPS & FRIES" },
+  chips: { image: "/dishes/peri-peri-chips.png", tag: "FRIES & CHIPS" },
   shakes: { image: "/dishes/oreo-milkshake.png", tag: "MILKSHAKES" },
   sweets: { image: "/dishes/belgian-waffle.png", tag: "DESSERTS" },
 };
@@ -83,9 +83,9 @@ export default function CategoryShowcaseGrid({
               </div>
 
               {/* Title & Count */}
-              <div className="mt-1.5">
+              <div className="mt-1.5 w-full">
                 <h4
-                  className={`font-display text-xs sm:text-sm leading-tight uppercase transition-colors ${
+                  className={`font-display text-xs sm:text-sm leading-tight uppercase truncate px-1 transition-colors ${
                     isActive ? "text-crush font-extrabold" : "text-off group-hover:text-crush"
                   }`}
                 >
