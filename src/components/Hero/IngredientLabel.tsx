@@ -7,10 +7,10 @@ const IngredientLabel = forwardRef<HTMLDivElement, { data: Ingredient }>(
     return (
       <div
         ref={ref}
-        className={`absolute z-40 w-[75vw] max-w-[340px] sm:w-[40vw] md:w-[320px] rounded-2xl border border-white/10 bg-char-800/80 p-4 sm:p-5 backdrop-blur-md shadow-2xl transition-all duration-300 ${
+        className={`absolute z-40 w-[86vw] max-w-[320px] sm:w-[50vw] md:w-[320px] rounded-2xl border border-white/15 bg-char-800/85 p-4 sm:p-5 backdrop-blur-md shadow-2xl transition-all duration-300 left-1/2 -translate-x-1/2 md:translate-x-0 ${
           isLeft
-            ? "left-[4%] sm:left-[6%] md:left-[8%] text-left border-l-2 border-l-crush"
-            : "right-[4%] sm:right-[6%] md:right-[8%] text-right border-r-2 border-r-crush"
+            ? "md:left-[8%] md:right-auto text-left border-l-2 border-l-crush"
+            : "md:right-[8%] md:left-auto text-left md:text-right border-l-2 md:border-l-0 md:border-r-2 border-l-crush md:border-r-crush"
         }`}
         style={{
           top: `${data.topPct}%`,

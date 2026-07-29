@@ -179,29 +179,29 @@ export default function ScrollStage() {
         {/* Hero Text & Logo Header */}
         <div
           ref={introRef}
-          className="pointer-events-none absolute top-[3%] sm:top-[4%] inset-x-0 mx-auto z-30 flex flex-col items-center text-center px-4 max-w-xl w-full"
+          className="pointer-events-none absolute top-[11%] sm:top-[8%] md:top-[6%] inset-x-0 mx-auto z-30 flex flex-col items-center text-center px-4 max-w-xl w-full"
         >
           <img
             src="/logo.png"
             alt="BURGER NATION"
-            className="h-16 sm:h-24 md:h-28 w-auto object-contain my-1.5 drop-shadow-[0_8px_20px_rgba(212,175,55,0.45)] animate-float"
+            className="h-14 sm:h-24 md:h-28 w-auto object-contain my-1 drop-shadow-[0_8px_20px_rgba(212,175,55,0.45)] animate-float"
           />
 
-          <p className="mt-4 max-w-lg text-sm sm:text-base text-off-dim font-medium leading-relaxed">
+          <p className="mt-3 max-w-lg text-xs sm:text-base text-off-dim font-medium leading-relaxed px-2">
             100% Halal certified, hand-pressed Angus beef patties and crispy chicken fillets.
             Scroll to unbundle the layers.
           </p>
 
-          <div className="pointer-events-auto mt-8 flex flex-wrap items-center justify-center gap-4">
+          <div className="pointer-events-auto mt-6 sm:mt-8 flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3 sm:gap-4 w-full max-w-xs sm:max-w-none">
             <a
               href="#menu"
-              className="rounded-full bg-crush px-8 py-3.5 text-xs tracking-[0.2em] font-bold text-black shadow-xl shadow-crush/30 hover:bg-orange-400 transition-all active:scale-95"
+              className="rounded-full bg-crush px-8 py-3.5 text-xs tracking-[0.2em] font-bold text-black shadow-xl shadow-crush/30 hover:bg-orange-400 transition-all active:scale-95 text-center"
             >
               EXPLORE FULL MENU ↓
             </a>
             <a
               href="tel:01689637476"
-              className="rounded-full border border-white/20 bg-white/5 px-6 py-3.5 text-xs tracking-[0.18em] text-off font-semibold hover:border-crush hover:text-crush transition-colors"
+              className="rounded-full border border-white/20 bg-white/5 px-6 py-3.5 text-xs tracking-[0.18em] text-off font-semibold hover:border-crush hover:text-crush transition-colors text-center"
             >
               CALL: 01689 637476
             </a>
