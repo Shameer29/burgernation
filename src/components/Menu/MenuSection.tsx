@@ -195,41 +195,34 @@ export default function MenuSection() {
       {/* Sticky Category Navigation */}
       <CategoryNav categories={menuCategories} activeId={activeId} onSelect={handleSelectCategory} />
 
-      {/* View Mode Toggle & Active Category Banner */}
-      <div id="menu-items-anchor" className="mx-auto max-w-6xl px-5 sm:px-8 pt-4 pb-8 flex flex-col sm:flex-row items-center justify-between gap-4 border-b border-white/10">
-        <div className="text-center sm:text-left">
-          <span className="text-[11px] tracking-[0.25em] text-crush font-extrabold uppercase">
-            {viewMode === "single" && !searchQuery && activeFilter === "all"
-              ? "FOCUSED CATEGORY VIEW"
-              : "FULL MENU VIEW"}
-          </span>
-          <p className="text-xs sm:text-sm text-off-dim mt-0.5">
-            {viewMode === "single" && !searchQuery && activeFilter === "all"
-              ? "Displaying one selected category at a time for fast, effortless browsing."
-              : "Displaying all matching categories across the menu."}
-          </p>
-        </div>
+      {/* View Mode Toggle */}
+      <div id="menu-items-anchor" className="mx-auto max-w-6xl px-5 sm:px-8 pt-4 pb-6 flex items-center justify-between border-b border-white/10">
+        <span className="text-xs tracking-[0.2em] text-crush font-extrabold uppercase">
+          {viewMode === "single" && !searchQuery && activeFilter === "all"
+            ? menuCategories.find((c) => c.id === activeId)?.label || "MENU ITEMS"
+            : "FULL MENU"}
+        </span>
 
-        <div className="flex items-center gap-2 bg-char-800/90 p-1.5 rounded-full border border-white/10">
+        <div className="flex items-center gap-1.5 bg-char-800 p-1 rounded-full border border-white/10">
           <button
             onClick={() => setViewMode("single")}
-            className={`rounded-full px-4 py-2 text-xs font-bold tracking-wider uppercase transition-all ${
+            className={`rounded-full px-3.5 py-1.5 text-xs font-bold tracking-wider uppercase transition-all ${
               viewMode === "single"
                 ? "bg-crush text-black shadow-md"
                 : "text-off-dim hover:text-off"
             }`}
           >
-            QUICK VIEW (NO SCROLL)
+            CATEGORY VIEW
           </button>
           <button
             onClick={() => setViewMode("all")}
-            className={`rounded-full px-4 py-2 text-xs font-bold tracking-wider uppercase transition-all ${
+            className={`rounded-full px-3.5 py-1.5 text-xs font-bold tracking-wider uppercase transition-all ${
               viewMode === "all"
                 ? "bg-crush text-black shadow-md"
                 : "text-off-dim hover:text-off"
             }`}
           >
-            SHOW ALL 11 CATEGORIES
+            ALL CATEGORIES
           </button>
         </div>
       </div>
