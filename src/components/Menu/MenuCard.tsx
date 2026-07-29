@@ -75,7 +75,7 @@ export default function MenuCard({
         {/* Top Badges */}
         <div className="relative z-10 flex items-center justify-between gap-2 mb-3">
           <span className="rounded-full bg-crush/20 border border-crush/40 px-3.5 py-1 text-[10px] sm:text-xs font-extrabold tracking-[0.2em] text-crush uppercase">
-            ★ FEATURED SIGNATURE
+            SIGNATURE RECIPE
           </span>
           {item.price && (
             <span className="rounded-full bg-white/10 border border-white/20 px-4 py-1 font-display text-lg sm:text-xl text-off font-extrabold tracking-wide shadow-md">
@@ -142,7 +142,7 @@ export default function MenuCard({
 
           <div className="mt-6 pt-4 border-t border-white/10 flex items-center justify-between">
             <span className="text-xs tracking-[0.2em] text-green-400 font-extrabold uppercase">
-              ★ FREE SAUCE INCLUDED
+              FREE SAUCE INCLUDED
             </span>
             <span className="inline-flex items-center gap-2 rounded-full border border-crush/40 bg-crush px-5 py-2.5 text-xs font-extrabold tracking-widest text-black uppercase transition-all duration-300 shadow-[0_0_20px_rgba(234,88,12,0.4)] group-hover:scale-105">
               CUSTOMIZE & ORDER &rarr;

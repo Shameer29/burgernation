@@ -25,7 +25,7 @@ export default function CategorySection({
       >
         {/* Sub-tag badge */}
         <div className="inline-flex items-center gap-2 rounded-full border border-crush/30 bg-crush/10 px-4 py-1.5 text-xs font-extrabold tracking-[0.25em] text-crush uppercase mb-4">
-          <span>★ BURGER NATION MENU ★</span>
+          <span>BURGER NATION COLLECTION</span>
         </div>
 
         <div className="flex flex-wrap items-baseline justify-between gap-4">

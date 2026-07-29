@@ -109,7 +109,7 @@ export default function DishShowcaseModal({ item, onClose }: DishShowcaseModalPr
                   <label className="text-[11px] tracking-[0.2em] text-off font-semibold block">
                     CHOOSE YOUR FREE SIGNATURE SAUCE:
                   </label>
-                  <span className="text-[10px] text-green-400 font-bold uppercase tracking-wider">★ NO EXTRA CHARGE</span>
+                  <span className="text-[10px] text-green-400 font-bold uppercase tracking-wider">INCLUDED WITH MEAL</span>
                 </div>
                 <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 max-h-36 overflow-y-auto pr-1">
                   {SAUCES.map((sauce) => (

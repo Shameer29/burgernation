@@ -142,7 +142,7 @@ export default function MenuItemCard({
           {/* Action Button Footer */}
           <div className="mt-6 pt-4 border-t border-white/10 flex items-center justify-between">
             <span className="text-xs tracking-[0.2em] font-bold text-off-dim uppercase group-hover:text-off transition-colors">
-              ★ FREE SAUCE INCLUDED
+              INCLUDES FREE SAUCE
             </span>
             <span className="inline-flex items-center gap-1.5 rounded-full border border-white/15 bg-white/5 group-hover:border-crush group-hover:bg-crush px-4 py-2 text-xs font-extrabold tracking-wider text-off group-hover:text-black uppercase transition-all duration-300">
               CUSTOMIZE &rarr;

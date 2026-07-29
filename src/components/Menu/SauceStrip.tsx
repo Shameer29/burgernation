@@ -4,9 +4,9 @@ import { SAUCES } from "../../data/menu";
 
 const SAUCE_TABS = [
   { id: "all", label: "ALL SAUCES (11)" },
-  { id: "hot", label: "🔥 VERY HOT" },
-  { id: "creamy", label: "🌟 CREAMY & CLASSIC" },
-  { id: "glaze", label: "🍯 GLAZES & BBQ" },
+  { id: "hot", label: "VERY HOT 🔥" },
+  { id: "creamy", label: "CREAMY & CLASSIC" },
+  { id: "glaze", label: "GLAZES & BBQ" },
 ];
 
 export default function SauceStrip() {
@@ -38,7 +38,7 @@ export default function SauceStrip() {
         <div className="relative z-10 flex flex-col lg:flex-row items-center justify-between gap-6 mb-10 border-b border-white/10 pb-8 text-center lg:text-left">
           <div>
             <div className="inline-flex items-center gap-2 rounded-full border border-green-500/30 bg-green-500/10 px-4 py-1.5 text-xs tracking-[0.25em] text-green-400 font-bold mb-3">
-              <span>★ SIGNATURE DIPPING NATION ★</span>
+              <span>SIGNATURE DIPPING NATION</span>
             </div>
             <h3 className="font-display text-3xl sm:text-5xl text-off tracking-wide uppercase">
               CHOOSE <span className="text-green-400">YOUR</span> SIGNATURE SAUCE
@@ -49,7 +49,7 @@ export default function SauceStrip() {
           </div>
           <div className="flex flex-col sm:flex-row items-center gap-3">
             <div className="inline-flex items-center gap-2 rounded-2xl border-2 border-green-500/40 bg-green-500/15 px-6 py-3 text-sm sm:text-base tracking-[0.15em] text-green-300 font-extrabold shadow-[0_0_20px_rgba(34,197,94,0.3)]">
-              <span>★ FREE WITH ANY DISH ★</span>
+              <span>COMPLIMENTARY WITH EVERY DISH</span>
             </div>
           </div>
         </div>
@@ -131,7 +131,7 @@ export default function SauceStrip() {
                 {/* Bottom pill */}
                 <div className="mt-5 pt-4 border-t border-white/10 flex items-center justify-center">
                   <span className="text-[11px] tracking-[0.2em] font-bold text-green-400 group-hover:text-green-300 uppercase transition-colors">
-                    ★ CHOOSE WITH ANY MEAL ★
+                    SELECT WITH YOUR ORDER
                   </span>
                 </div>
               </motion.div>
@@ -142,7 +142,7 @@ export default function SauceStrip() {
         {/* Guarantee footer matching flyer */}
         <div className="mt-12 pt-6 border-t border-white/10 text-center">
           <p className="text-xs sm:text-sm tracking-[0.2em] text-green-400 font-extrabold uppercase">
-            ★ ALL ITEMS COME WITH THE SAUCE OF YOUR CHOICE — NO EXTRA CHARGE! ★
+            ALL ITEMS COME WITH THE SAUCE OF YOUR CHOICE — NO EXTRA CHARGE!
           </p>
         </div>
       </div>
