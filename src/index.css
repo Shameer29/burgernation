@@ -1,0 +1,142 @@
+@import "tailwindcss";
+
+@theme {
+  --color-char-950: #08090b;
+  --color-char-900: #0f1015;
+  --color-char-800: #171922;
+  --color-char-700: #232634;
+  --color-char-600: #313547;
+  --color-off: #f8f6f0;
+  --color-off-dim: #d1ccb9;
+  --color-crush: #d4af37;
+  --color-crush-light: #f5d061;
+  --color-crush-dark: #997a15;
+
+  --font-display: "Anton", "Bebas Neue", sans-serif;
+  --font-body: "Inter", system-ui, sans-serif;
+
+  --animate-marquee: marquee 22s linear infinite;
+  --animate-spin-y: spin-y 3.2s linear infinite;
+  --animate-float: float-blob 3.2s ease-in-out infinite;
+  --animate-drip: drip 2.6s ease-in-out infinite;
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes spin-y {
+  from {
+    transform: rotateY(0deg);
+  }
+  to {
+    transform: rotateY(360deg);
+  }
+}
+
+@keyframes float-blob {
+  0%,
+  100% {
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    transform: translateY(-5px) scale(1.1);
+  }
+}
+
+@keyframes drip {
+  0%,
+  100% {
+    transform: scaleY(1);
+    opacity: 0.9;
+  }
+  50% {
+    transform: scaleY(1.6);
+    opacity: 0.4;
+  }
+}
+
+html {
+  background-color: var(--color-char-900);
+  color-scheme: dark;
+}
+
+body {
+  margin: 0;
+  background-color: var(--color-char-900);
+  color: var(--color-off);
+  font-family: var(--font-body);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: var(--color-crush);
+  color: var(--color-char-950);
+}
+
+.font-display {
+  font-family: var(--font-display);
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+}
+
+/* grain overlay for premium texture */
+.grain {
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  opacity: 0.05;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+.text-gold-gradient {
+  background: linear-gradient(135deg, #fff5c0 0%, #d4af37 40%, #f5d061 70%, #997a15 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.bg-gold-gradient {
+  background: linear-gradient(135deg, #f5d061 0%, #d4af37 50%, #997a15 100%);
+}
+
+.border-gold-gradient {
+  border-image: linear-gradient(135deg, #f5d061, #d4af37, #997a15) 1;
+}
+
+.text-stroke-crush {
+  -webkit-text-stroke: 1.5px var(--color-crush);
+  color: transparent;
+}
+
+/* liquid goo filter target */
+.goo {
+  filter: url(#goo);
+}
+
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-none {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}

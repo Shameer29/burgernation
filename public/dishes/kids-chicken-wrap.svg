@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" width="500" height="500">
+    <defs>
+      <radialGradient id="grad-glow-kids-chicken-wrap" cx="50%" cy="50%" r="50%">
+        <stop offset="0%" stop-color="#84CC16" stop-opacity="0.4"/>
+        <stop offset="100%" stop-color="#84CC16" stop-opacity="0"/>
+      </radialGradient>
+      <linearGradient id="item-grad-kids-chicken-wrap" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#FBBF24"/>
+        <stop offset="50%" stop-color="#D97706"/>
+        <stop offset="100%" stop-color="#92400E"/>
+      </linearGradient>
+      <filter id="shadow-kids-chicken-wrap" x="-20%" y="-20%" width="140%" height="140%">
+        <feDropShadow dx="0" dy="15" stdDeviation="12" flood-color="#000000" flood-opacity="0.6"/>
+      </filter>
+    </defs>
+    <circle cx="250" cy="250" r="220" fill="url(#grad-glow-kids-chicken-wrap)"/>
+    <g filter="url(#shadow-kids-chicken-wrap)">
+      
+        <ellipse cx="200" cy="220" rx="60" ry="40" fill="url(#item-grad-kids-chicken-wrap)"/>
+        <ellipse cx="300" cy="230" rx="65" ry="45" fill="url(#item-grad-kids-chicken-wrap)"/>
+        <ellipse cx="250" cy="300" rx="70" ry="45" fill="url(#item-grad-kids-chicken-wrap)"/>
+        <ellipse cx="180" cy="330" rx="55" ry="38" fill="url(#item-grad-kids-chicken-wrap)"/>
+        <ellipse cx="320" cy="320" rx="58" ry="40" fill="url(#item-grad-kids-chicken-wrap)"/>
+      
+    </g>
+  </svg>

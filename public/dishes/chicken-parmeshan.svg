@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" width="500" height="500">
+    <defs>
+      <radialGradient id="grad-glow-chicken-parmeshan" cx="50%" cy="50%" r="50%">
+        <stop offset="0%" stop-color="#FEF08A" stop-opacity="0.4"/>
+        <stop offset="100%" stop-color="#FEF08A" stop-opacity="0"/>
+      </radialGradient>
+      <linearGradient id="bun-top-chicken-parmeshan" x1="0%" y1="0%" x2="0%" y2="100%">
+        <stop offset="0%" stop-color="#F5A04F"/>
+        <stop offset="50%" stop-color="#D97529"/>
+        <stop offset="100%" stop-color="#AD4B0F"/>
+      </linearGradient>
+      <linearGradient id="patty-chicken-parmeshan" x1="0%" y1="0%" x2="0%" y2="100%">
+        <stop offset="0%" stop-color="#E68A2E"/>
+        <stop offset="100%" stop-color="#994D00"/>
+      </linearGradient>
+      <linearGradient id="cheese-chicken-parmeshan" x1="0%" y1="0%" x2="0%" y2="100%">
+        <stop offset="0%" stop-color="#FFD000"/>
+        <stop offset="100%" stop-color="#FF9900"/>
+      </linearGradient>
+      <filter id="shadow-chicken-parmeshan" x="-20%" y="-20%" width="140%" height="140%">
+        <feDropShadow dx="0" dy="15" stdDeviation="15" flood-color="#000000" flood-opacity="0.6"/>
+      </filter>
+    </defs>
+    <circle cx="250" cy="250" r="220" fill="url(#grad-glow-chicken-parmeshan)"/>
+    <g filter="url(#shadow-chicken-parmeshan)">
+      <path d="M120,360 Q250,380 380,360 Q390,390 370,410 Q250,425 130,410 Q110,390 120,360 Z" fill="#D97529"/>
+      <path d="M100,320 Q250,310 400,320 Q415,355 385,370 Q250,375 115,370 Q85,355 100,320 Z" fill="url(#patty-chicken-parmeshan)"/>
+      <path d="M110,320 L130,345 L150,322 L190,350 L230,320 L270,355 L310,322 L350,348 L390,320 Q395,335 385,340 Q250,355 115,340 Z" fill="url(#cheese-chicken-parmeshan)"/>
+      
+      <path d="M90,280 Q140,260 190,285 Q250,255 310,285 Q360,260 410,280 Q420,305 390,310 Q250,300 110,310 Z" fill="#38A169"/>
+      <ellipse cx="180" cy="270" rx="45" ry="12" fill="#E53E3E"/>
+      <ellipse cx="320" cy="265" rx="50" ry="14" fill="#E53E3E"/>
+      <path d="M110,260 C100,100 400,100 390,260 Q250,275 110,260 Z" fill="url(#bun-top-chicken-parmeshan)"/>
+      <ellipse cx="200" cy="180" rx="6" ry="3" fill="#FFFBEB" transform="rotate(-15 200 180)"/>
+      <ellipse cx="270" cy="170" rx="6" ry="3" fill="#FFFBEB" transform="rotate(10 270 170)"/>
+      <ellipse cx="320" cy="190" rx="6" ry="3" fill="#FFFBEB" transform="rotate(25 320 190)"/>
+    </g>
+  </svg>

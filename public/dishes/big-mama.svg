@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" width="500" height="500">
+    <defs>
+      <radialGradient id="grad-glow-big-mama" cx="50%" cy="50%" r="50%">
+        <stop offset="0%" stop-color="#D97706" stop-opacity="0.4"/>
+        <stop offset="100%" stop-color="#D97706" stop-opacity="0"/>
+      </radialGradient>
+      <linearGradient id="bun-top-big-mama" x1="0%" y1="0%" x2="0%" y2="100%">
+        <stop offset="0%" stop-color="#F5A04F"/>
+        <stop offset="50%" stop-color="#D97529"/>
+        <stop offset="100%" stop-color="#AD4B0F"/>
+      </linearGradient>
+      <linearGradient id="patty-big-mama" x1="0%" y1="0%" x2="0%" y2="100%">
+        <stop offset="0%" stop-color="#4A2118"/>
+        <stop offset="100%" stop-color="#210B07"/>
+      </linearGradient>
+      <linearGradient id="cheese-big-mama" x1="0%" y1="0%" x2="0%" y2="100%">
+        <stop offset="0%" stop-color="#FFD000"/>
+        <stop offset="100%" stop-color="#FF9900"/>
+      </linearGradient>
+      <filter id="shadow-big-mama" x="-20%" y="-20%" width="140%" height="140%">
+        <feDropShadow dx="0" dy="15" stdDeviation="15" flood-color="#000000" flood-opacity="0.6"/>
+      </filter>
+    </defs>
+    <circle cx="250" cy="250" r="220" fill="url(#grad-glow-big-mama)"/>
+    <g filter="url(#shadow-big-mama)">
+      <path d="M120,360 Q250,380 380,360 Q390,390 370,410 Q250,425 130,410 Q110,390 120,360 Z" fill="#D97529"/>
+      <path d="M100,320 Q250,310 400,320 Q415,355 385,370 Q250,375 115,370 Q85,355 100,320 Z" fill="url(#patty-big-mama)"/>
+      <path d="M110,320 L130,345 L150,322 L190,350 L230,320 L270,355 L310,322 L350,348 L390,320 Q395,335 385,340 Q250,355 115,340 Z" fill="url(#cheese-big-mama)"/>
+      
+      <path d="M95,270 Q250,260 405,270 Q420,305 390,320 Q250,325 110,320 Q80,305 95,270 Z" fill="url(#patty-big-mama)"/>
+      <path d="M105,275 L125,295 L145,275 L185,305 L225,275 L265,305 L305,275 L345,300 L385,275 Q390,290 380,295 Q250,310 110,295 Z" fill="url(#cheese-big-mama)"/>
+      
+      <path d="M90,230 Q140,210 190,235 Q250,205 310,235 Q360,210 410,230 Q420,255 390,260 Q250,250 110,260 Z" fill="#38A169"/>
+      <ellipse cx="180" cy="220" rx="45" ry="12" fill="#E53E3E"/>
+      <ellipse cx="320" cy="215" rx="50" ry="14" fill="#E53E3E"/>
+      <path d="M110,210 C100,100 400,100 390,210 Q250,225 110,210 Z" fill="url(#bun-top-big-mama)"/>
+      <ellipse cx="200" cy="140" rx="6" ry="3" fill="#FFFBEB" transform="rotate(-15 200 140)"/>
+      <ellipse cx="270" cy="130" rx="6" ry="3" fill="#FFFBEB" transform="rotate(10 270 130)"/>
+      <ellipse cx="320" cy="150" rx="6" ry="3" fill="#FFFBEB" transform="rotate(25 320 150)"/>
+    </g>
+  </svg>
