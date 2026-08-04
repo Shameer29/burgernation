@@ -191,15 +191,15 @@ export default function ScrollStage() {
         {/* Hero Frame Canvas */}
         <canvas ref={canvasRef} className="absolute inset-0 block h-full w-full object-center z-10" />
 
-        {/* Hero Text & Logo Header */}
+        {/* Hero Text Overlay — sits below the navbar, stacked above the burger art */}
         <div
           ref={introRef}
-          className="pointer-events-none absolute top-[11%] sm:top-[8%] md:top-[6%] inset-x-0 mx-auto z-30 flex flex-col items-center text-center px-4 max-w-xl w-full"
+          className="pointer-events-none absolute inset-x-0 top-0 pt-16 sm:pt-20 mx-auto z-30 flex flex-col items-center text-center px-4 max-w-xl w-full"
         >
           <img
             src="/logo.png"
             alt="BURGER NATION"
-            className="h-14 sm:h-24 md:h-28 w-auto object-contain my-1 drop-shadow-[0_8px_20px_rgba(212,175,55,0.45)] animate-float"
+            className="h-14 sm:h-20 md:h-24 w-auto object-contain drop-shadow-[0_8px_20px_rgba(212,175,55,0.45)]"
           />
 
           <p className="mt-3 max-w-lg text-xs sm:text-base text-off-dim font-medium leading-relaxed px-2">

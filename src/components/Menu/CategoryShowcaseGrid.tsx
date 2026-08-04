@@ -2,19 +2,12 @@ import { motion } from "framer-motion";
 import type { MenuCategory } from "../../data/menu";
 
 const CATEGORY_ICONS: Record<string, { image: string; tag: string }> = {
-  smash: { image: "/dishes/truffle-smash.png", tag: "SMASH BURGERS" },
-  "classic-beef": { image: "/dishes/original-plain-cheese.png", tag: "BEEF BURGERS" },
-  "double-patty": { image: "/dishes/wtf.png", tag: "DOUBLE PATTY" },
-  "chicken-burgers": { image: "/dishes/classic-fillet.png", tag: "CHICKEN BURGERS" },
-  "peri-peri": { image: "/dishes/peri-peri-chicken.png", tag: "PERI-PERI GRILL" },
-  "chicken-bites": { image: "/dishes/peri-peri-wings.png", tag: "CHICKEN BITES" },
-  vegan: { image: "/dishes/hot-dog-vegano.png", tag: "VEGAN NATION" },
-  kids: { image: "/dishes/kids-cheese-burger.png", tag: "KIDS NATION" },
-  salad: { image: "/dishes/greek-salad.png", tag: "SALADS" },
-  sides: { image: "/dishes/mozzarella-sticks.png", tag: "SIDES" },
-  chips: { image: "/dishes/peri-peri-chips.png", tag: "FRIES & CHIPS" },
-  shakes: { image: "/dishes/milkshake.png", tag: "MILKSHAKES" },
-  sweets: { image: "/dishes/belgian-waffle.png", tag: "DESSERTS" },
+  "boss-iconics": { image: "/dishes/gypsy-king.png", tag: "BOSS ICONICS" },
+  "big-boss": { image: "/dishes/big-daddy.png", tag: "BIG BOSS" },
+  "boss-kids": { image: "/dishes/kids-cheese-burger.png", tag: "BOSS KIDS" },
+  "boss-snacks": { image: "/dishes/peri-peri-chips.png", tag: "SNACKS & SIDES" },
+  "boss-desserts": { image: "/dishes/belgian-waffle.png", tag: "DESSERTS" },
+  "boss-shakes": { image: "/dishes/milkshake.png", tag: "SHAKES & DRINKS" },
 };
 
 export default function CategoryShowcaseGrid({
@@ -37,7 +30,7 @@ export default function CategoryShowcaseGrid({
         </h3>
       </div>
 
-      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-2.5 sm:gap-3">
+      <div className="flex flex-wrap justify-center gap-2.5 sm:gap-3">
         {categories.map((cat, idx) => {
           const isActive = cat.id === activeId;
           const meta = CATEGORY_ICONS[cat.id] || {
@@ -55,7 +48,7 @@ export default function CategoryShowcaseGrid({
               transition={{ duration: 0.3, delay: (idx % 7) * 0.04 }}
               whileHover={{ y: -3 }}
               whileTap={{ scale: 0.96 }}
-              className={`group relative flex flex-col items-center justify-between overflow-hidden rounded-2xl border p-3 text-center transition-all duration-300 ${
+              className={`group relative flex flex-col items-center justify-between overflow-hidden rounded-2xl border p-3 text-center transition-all duration-300 w-[calc(50%-5px)] sm:w-[calc(33.333%-8px)] md:w-[calc(25%-9px)] lg:w-[calc(16.666%-10.5px)] ${
                 isActive
                   ? "border-crush bg-crush/15 shadow-[0_10px_25px_rgba(234,88,12,0.3)] ring-2 ring-crush/50"
                   : "border-white/10 bg-char-800/80 hover:border-crush/50 hover:bg-char-800"
