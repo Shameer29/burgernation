@@ -79,11 +79,11 @@ export default function Footer({ onSelectTab, onOpenModal }: FooterProps) {
           <h5 className="text-xs font-bold tracking-widest text-crush uppercase mb-4">Franchise Inquiries</h5>
           <ul className="space-y-2.5 text-off-dim">
             <li className="font-semibold text-off">Corporate Head Office:</li>
-            <li className="text-crush-light">Azeem (CEO &amp; Founder)</li>
-            <li>corporate@burgernation.co.uk / azeem@burgernation.co.uk</li>
+            <li className="text-crush-light">Rahim (Founder &amp; CEO)</li>
+            <li>corporate@burgernation.co.uk / rahim@burgernation.co.uk</li>
             <li className="pt-2 font-semibold text-off">Franchise Development:</li>
-            <li className="text-crush-light">Guru Shankar (Managing Director)</li>
-            <li>guru@burgernation.co.uk</li>
+            <li className="text-crush-light">Azeem (Operations Director)</li>
+            <li>azeem@burgernation.co.uk</li>
             <li>+44 20 3839 1122</li>
           </ul>
         </motion.div>

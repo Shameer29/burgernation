@@ -74,7 +74,7 @@ export const FRANCHISE_TIERS: FranchiseTier[] = [
     id: "high-street",
     name: "HIGH STREET / PRIME AREAS",
     badge: "Popular Choice",
-    franchiseFee: "£20,000",
+    franchiseFee: "£15,000",
     setupCost: "£80,000",
     totalInvestment: "£100,000",
     royaltyFee: "8%",
@@ -96,7 +96,7 @@ export const FRANCHISE_TIERS: FranchiseTier[] = [
     id: "premium",
     name: "PREMIUM",
     badge: "High Growth",
-    franchiseFee: "£30,000",
+    franchiseFee: "£15,000",
     setupCost: "£100,000",
     totalInvestment: "£130,000",
     royaltyFee: "8%",
@@ -118,7 +118,7 @@ export const FRANCHISE_TIERS: FranchiseTier[] = [
     id: "elite",
     name: "ELITE",
     badge: "Flagship Destination",
-    franchiseFee: "£30,000",
+    franchiseFee: "£15,000",
     setupCost: "£140,000",
     totalInvestment: "£170,000",
     royaltyFee: "8%",
@@ -199,13 +199,13 @@ export const DISCOVERY_STEPS: DiscoveryStep[] = [
 
 export const LEADERSHIP_PROFILES: LeaderProfile[] = [
   {
-    name: "AZEEM",
-    title: "CEO & Founder",
-    email: "azeem@burgernation.co.uk",
+    name: "RAHIM",
+    title: "Founder & CEO",
+    email: "rahim@burgernation.co.uk",
     bio: [
       "A visionary leader with phenomenal experience in the field of F&B & Hospitality industries across the UK market.",
       "Expertise in franchises, food outlets, business expansion & leadership. Proven entrepreneurial skills to mobilize leadership teams nationwide.",
-      "Owns and operates multiple BURGER NATION outlets across London with a growing team under his direct leadership.",
+      "Founded and built BURGER NATION from the ground up, growing it into a multi-outlet franchise across London.",
       "A dedicated philanthropist committed to making a positive impact by supporting causes that matter to society."
     ],
     stats: [
@@ -215,36 +215,35 @@ export const LEADERSHIP_PROFILES: LeaderProfile[] = [
     ],
     skills: [
       { name: "Leadership", percentage: 99 },
+      { name: "Vision", percentage: 100 },
       { name: "Planning", percentage: 95 },
-      { name: "Operations", percentage: 95 },
-      { name: "Delegation", percentage: 95 },
+      { name: "Business Development", percentage: 95 },
       { name: "Initiative", percentage: 100 },
       { name: "Social Responsibility", percentage: 100 }
     ]
   },
   {
-    name: "GURU SHANKAR",
-    title: "Managing Director",
-    email: "guru@burgernation.co.uk",
-    phone: "+44 20 3839 1122",
+    name: "AZEEM",
+    title: "Operations Director",
+    email: "azeem@burgernation.co.uk",
     bio: [
-      "22+ years of rich managerial experience in Manufacturing, Sales & Marketing, HR, Procurement, Web Development, Digital Marketing & Commercial Operations.",
-      "Expertise in strategic planning, market expansion, presales, and managing complete operations encompassing business development and client servicing.",
-      "Directly leading BURGER NATION franchise operations, site acquisitions, vendor management, and brand marketing.",
-      "Founder of MG WEB — a web development & design company."
+      "Oversees day-to-day operations across all BURGER NATION outlets, ensuring consistency in quality, service, and brand standards nationwide.",
+      "Expertise in franchise operations, site acquisitions, vendor management, and staff training programs.",
+      "Works directly with franchise partners to streamline launches and maintain operational excellence post-opening.",
+      "A dedicated philanthropist committed to making a positive impact by supporting causes that matter to society."
     ],
     stats: [
-      { label: "Industry Experience", value: "22+ Yrs" },
-      { label: "Tech & Marketing Ops", value: "100%" },
-      { label: "Franchise Expansion Lead", value: "Active" }
+      { label: "London Outlets", value: "15+" },
+      { label: "Team Strength", value: "250+" },
+      { label: "Years in F&B", value: "20+" }
     ],
     skills: [
-      { name: "Leadership", percentage: 99 },
-      { name: "Communication", percentage: 99 },
-      { name: "Analysis", percentage: 95 },
-      { name: "Decision Making", percentage: 99 },
-      { name: "Team Management", percentage: 99 },
-      { name: "Marketing", percentage: 99 }
+      { name: "Operations", percentage: 99 },
+      { name: "Leadership", percentage: 95 },
+      { name: "Delegation", percentage: 95 },
+      { name: "Vendor Management", percentage: 95 },
+      { name: "Staff Training", percentage: 100 },
+      { name: "Quality Control", percentage: 100 }
     ]
   }
 ];

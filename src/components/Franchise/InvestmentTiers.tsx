@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { FRANCHISE_TIERS, type FranchiseTier } from "../../data/franchise";
 
 interface InvestmentTiersProps {
@@ -8,50 +8,6 @@ interface InvestmentTiersProps {
 
 export const InvestmentTiers: React.FC<InvestmentTiersProps> = ({ onOpenModal }) => {
   const [selectedTier, setSelectedTier] = useState<string>("high-street");
-  const [calcSqFt, setCalcSqFt] = useState<number>(700);
-
-  // Dynamic calculation helper based on selected Sq Ft
-  const calculateEstimate = (sqFt: number) => {
-    let tierName: string;
-    let fee: number;
-    let setup: number;
-    let marketing: number;
-    const royalty = 8;
-
-    if (sqFt >= 1400) {
-      tierName = "Elite Flagship";
-      fee = 30000;
-      setup = 140000;
-      marketing = 4;
-    } else if (sqFt >= 900) {
-      tierName = "Premium QSR";
-      fee = 30000;
-      setup = 100000;
-      marketing = 4;
-    } else if (sqFt >= 500) {
-      tierName = "High Street Prime";
-      fee = 20000;
-      setup = 80000;
-      marketing = 3;
-    } else {
-      tierName = "Satellite Kiosk";
-      fee = 15000;
-      setup = 60000;
-      marketing = 3;
-    }
-
-    return {
-      tierName,
-      fee,
-      setup,
-      total: fee + setup,
-      royalty,
-      marketing,
-      paybackMonths: 24
-    };
-  };
-
-  const calcResult = calculateEstimate(calcSqFt);
 
   return (
     <section id="franchise-tiers" className="relative py-16 px-4 max-w-7xl mx-auto overflow-hidden">
@@ -161,124 +117,6 @@ export const InvestmentTiers: React.FC<InvestmentTiersProps> = ({ onOpenModal })
           );
         })}
       </div>
-
-      {/* Interactive ROI & Investment Calculator Card */}
-      <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.2 }}
-        transition={{ duration: 0.65, ease: [0.16, 1, 0.3, 1] }}
-        className="relative bg-gradient-to-br from-char-800 via-char-900 to-black rounded-[2rem] p-6 md:p-10 border border-crush/30 shadow-2xl overflow-hidden"
-      >
-        <div className="absolute top-0 right-0 w-96 h-96 bg-crush/10 rounded-full blur-3xl pointer-events-none" />
-
-        <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-          {/* Left Controls */}
-          <div className="lg:col-span-6 space-y-6">
-            <div>
-              <span className="text-crush text-xs font-bold uppercase tracking-widest">Interactive Tool</span>
-              <h3 className="font-display text-2xl md:text-3xl text-off mt-1 uppercase">
-                Investment &amp; ROI Calculator
-              </h3>
-              <p className="text-sm text-off-dim mt-2">
-                Slide your available store floor space to simulate financial setup costs, royalty rates,
-                and expected ROI timeline.
-              </p>
-            </div>
-
-            <div className="space-y-4">
-              <div className="flex justify-between items-center text-sm font-semibold">
-                <span className="text-off-dim">Available Commercial Area:</span>
-                <span className="text-crush text-lg font-bold bg-crush/10 px-3 py-1 rounded-lg border border-crush/20">
-                  {calcSqFt} Sq. Ft.
-                </span>
-              </div>
-
-              <input
-                type="range"
-                min="200"
-                max="2000"
-                step="50"
-                value={calcSqFt}
-                onChange={(e) => setCalcSqFt(Number(e.target.value))}
-                className="w-full h-3 bg-char-700 rounded-lg appearance-none cursor-pointer accent-crush"
-              />
-
-              <div className="flex justify-between text-xs text-off-dim/70 font-mono">
-                <span>200 Sq Ft (Satellite)</span>
-                <span>700 Sq Ft (High Street)</span>
-                <span>1500+ Sq Ft (Elite)</span>
-              </div>
-            </div>
-
-            <div className="p-4 rounded-xl bg-white/5 border border-white/10 text-xs text-off-dim space-y-1">
-              <p className="font-semibold text-off">Recommended Model for {calcSqFt} Sq.Ft:</p>
-              <AnimatePresence mode="wait">
-                <motion.p
-                  key={calcResult.tierName}
-                  initial={{ opacity: 0, y: -6 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: 6 }}
-                  transition={{ duration: 0.25 }}
-                  className="text-crush font-bold text-sm"
-                >
-                  {calcResult.tierName}
-                </motion.p>
-              </AnimatePresence>
-            </div>
-          </div>
-
-          {/* Right Result Card */}
-          <div className="lg:col-span-6 bg-char-900/90 rounded-2xl p-6 md:p-8 border border-white/10 space-y-6">
-            <h4 className="text-lg font-bold text-off border-b border-white/10 pb-3 flex justify-between items-center">
-              <span>Financial Projection Summary</span>
-              <span className="text-xs px-2.5 py-1 bg-emerald-500/10 text-emerald-400 rounded-full border border-emerald-500/20 font-normal">
-                ROI: {calcResult.paybackMonths} Months
-              </span>
-            </h4>
-
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={calcResult.tierName}
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 0.25 }}
-                className="grid grid-cols-2 gap-4"
-              >
-                <div className="bg-black/40 p-4 rounded-xl border border-white/5">
-                  <span className="text-xs text-off-dim block">Franchise Fee</span>
-                  <span className="text-xl font-bold text-crush">£{calcResult.fee.toLocaleString()}</span>
-                </div>
-
-                <div className="bg-black/40 p-4 rounded-xl border border-white/5">
-                  <span className="text-xs text-off-dim block">Est. Setup Cost</span>
-                  <span className="text-xl font-bold text-off">£{calcResult.setup.toLocaleString()}</span>
-                </div>
-
-                <div className="bg-black/40 p-4 rounded-xl border border-white/5">
-                  <span className="text-xs text-off-dim block">Royalty / Marketing</span>
-                  <span className="text-lg font-bold text-off-dim">
-                    {calcResult.royalty}% / {calcResult.marketing}%
-                  </span>
-                </div>
-
-                <div className="bg-black/40 p-4 rounded-xl border border-white/5">
-                  <span className="text-xs text-off-dim block">Total Est. Capital</span>
-                  <span className="text-xl font-extrabold text-emerald-400">£{calcResult.total.toLocaleString()}</span>
-                </div>
-              </motion.div>
-            </AnimatePresence>
-
-            <button
-              onClick={() => onOpenModal()}
-              className="w-full py-3.5 px-6 rounded-xl bg-gradient-to-r from-crush to-crush-dark hover:brightness-110 text-black font-bold text-sm tracking-wide shadow-lg shadow-crush/20 transition-all duration-200 active:scale-95"
-            >
-              Start Franchise Application (RFC)
-            </button>
-          </div>
-        </div>
-      </motion.div>
     </section>
   );
 };

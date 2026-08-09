@@ -3,6 +3,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import ScrollStage from "./components/Hero/ScrollStage";
 import AboutSection from "./components/Home/AboutSection";
 import SignatureItems from "./components/Home/SignatureItems";
+import AwardSection from "./components/Home/AwardSection";
 import ProcessStrip from "./components/Home/ProcessStrip";
 import Testimonials from "./components/Home/Testimonials";
 import HomeCTA from "./components/Home/HomeCTA";
@@ -11,6 +12,7 @@ import Footer from "./components/Layout/Footer";
 import MenuSection from "./components/Menu/MenuSection";
 import OrderFab from "./components/Fab/OrderFab";
 import { InvestmentTiers } from "./components/Franchise/InvestmentTiers";
+import { SisterBrandSection } from "./components/Franchise/SisterBrandSection";
 import { DiscoveryProcess } from "./components/Franchise/DiscoveryProcess";
 import { LeadershipSection } from "./components/Franchise/LeadershipSection";
 import { SocialProof } from "./components/Franchise/SocialProof";
@@ -76,6 +78,7 @@ function App() {
               <ScrollStage />
               <AboutSection />
               <SignatureItems onViewMenu={() => handleTabChange("menu")} />
+              <AwardSection />
               <ProcessStrip />
               <Testimonials />
               <HomeCTA onViewFranchise={() => handleTabChange("franchise-tiers")} />
@@ -105,6 +108,7 @@ function App() {
               transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
             >
               <InvestmentTiers onOpenModal={handleOpenModal} />
+              <SisterBrandSection onOpenModal={() => handleOpenModal()} />
               <DiscoveryProcess onOpenModal={() => handleOpenModal()} />
               <LeadershipSection />
             </motion.div>
