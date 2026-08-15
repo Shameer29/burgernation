@@ -7,6 +7,7 @@ import AwardSection from "./components/Home/AwardSection";
 import ProcessStrip from "./components/Home/ProcessStrip";
 import Testimonials from "./components/Home/Testimonials";
 import HomeCTA from "./components/Home/HomeCTA";
+import LocationsSection from "./components/Home/LocationsSection";
 import Navbar from "./components/Layout/Navbar";
 import Footer from "./components/Layout/Footer";
 import MenuSection from "./components/Menu/MenuSection";
@@ -82,6 +83,7 @@ function App() {
               <ProcessStrip />
               <Testimonials />
               <HomeCTA onViewFranchise={() => handleTabChange("franchise-tiers")} />
+              <LocationsSection />
             </motion.div>
           )}
 
