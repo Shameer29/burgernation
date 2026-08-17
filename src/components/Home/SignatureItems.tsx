@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { menuCategories } from "../../data/menu";
 
-const SIGNATURE_IDS = ["signature-burger", "double-trouble", "chicken-fiery", "smoky-salmon-burger"];
+const SIGNATURE_IDS = ["gypsy-king", "wtf", "buldak-burger", "brisket-burger"];
 
 const ALL_ITEMS = menuCategories.flatMap((c) => c.items);
 const SIGNATURE_ITEMS = SIGNATURE_IDS

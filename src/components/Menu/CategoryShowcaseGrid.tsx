@@ -2,12 +2,19 @@ import { motion } from "framer-motion";
 import type { MenuCategory } from "../../data/menu";
 
 const CATEGORY_ICONS: Record<string, { image: string; tag: string }> = {
-  "boss-iconics": { image: "/dishes/gypsy-king.png", tag: "BOSS ICONICS" },
-  "big-boss": { image: "/dishes/big-daddy.png", tag: "BIG BOSS" },
-  "boss-kids": { image: "/dishes/kids-cheese-burger.png", tag: "BOSS KIDS" },
-  "boss-snacks": { image: "/dishes/peri-peri-chips.png", tag: "SNACKS & SIDES" },
-  "boss-desserts": { image: "/dishes/belgian-waffle.png", tag: "DESSERTS" },
-  "boss-shakes": { image: "/dishes/milkshake.png", tag: "SHAKES & DRINKS" },
+  "smash-burgers": { image: "/dishes/classic-plain-smash.png", tag: "SMASH BURGERS" },
+  "premium-smash-burgers": { image: "/dishes/gypsy-king.png", tag: "PREMIUM SMASH" },
+  "beef-burgers": { image: "/dishes/original-plain-cheese.png", tag: "BEEF BURGERS" },
+  "premium-double-patty-burgers": { image: "/dishes/wtf.png", tag: "DOUBLE PATTY" },
+  "chicken-burgers": { image: "/dishes/nashville-burger.png", tag: "CHICKEN BURGERS" },
+  "kids-nation": { image: "/dishes/kids-cheese-burger.png", tag: "KIDS NATION" },
+  "vegan-nation": { image: "/dishes/vegan-cheese-burger.png", tag: "VEGAN NATION" },
+  "peri-peri-grill": { image: "/dishes/peri-peri-chicken.png", tag: "PERI-PERI & GRILL" },
+  "boneless-chicken-bites": { image: "/dishes/buffalo-wings.png", tag: "CHICKEN BITES" },
+  "chips-nation": { image: "/dishes/peri-peri-chips.png", tag: "CHIPS NATION" },
+  "sides-salad": { image: "/dishes/halloumi-fries.png", tag: "SIDES & SALAD" },
+  "shakes-drinks": { image: "/dishes/milkshake.png", tag: "SHAKES & DRINKS" },
+  "desserts": { image: "/dishes/belgian-waffle.png", tag: "DESSERTS" },
 };
 
 export default function CategoryShowcaseGrid({
