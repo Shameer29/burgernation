@@ -246,7 +246,7 @@ export default function ScrollStage() {
             <motion.img
               src="/logo.png"
               alt="BURGER NATION"
-              className="relative z-10 h-20 sm:h-28 md:h-36 w-auto object-contain drop-shadow-[0_15px_35px_rgba(212,175,55,0.6)]"
+              className="relative z-10 h-28 sm:h-36 md:h-48 w-auto object-contain drop-shadow-[0_15px_35px_rgba(212,175,55,0.6)]"
               initial={{ y: "-160vh", scale: 1.6, rotate: -14, opacity: 1 }}
               animate={{ y: 0, scale: [1.6, 0.72, 1.08, 1], rotate: 0, opacity: 1 }}
               transition={{ duration: 0.9, times: [0, 0.68, 0.85, 1], ease: [0.34, 1.56, 0.64, 1] }}
