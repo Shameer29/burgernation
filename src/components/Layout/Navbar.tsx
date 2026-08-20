@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
+import { ORDER_URL } from "../../data/orderLinks";
 
 interface NavbarProps {
   activeTab: string;
@@ -90,12 +91,14 @@ export default function Navbar({ activeTab, setActiveTab, onOpenFranchiseModal }
             BE YOUR OWN BOSS
           </button>
 
-          <button
-            onClick={() => handleTabClick("menu")}
+          <a
+            href={ORDER_URL}
+            target="_blank"
+            rel="noopener noreferrer"
             className="hidden sm:inline-flex px-3.5 py-1.5 rounded-full bg-crush/10 border border-crush/70 text-crush font-bold text-xs hover:bg-crush hover:text-black transition-all active:scale-95"
           >
             ORDER ONLINE
-          </button>
+          </a>
 
           {/* Mobile Menu Toggle */}
           <button
@@ -176,12 +179,15 @@ export default function Navbar({ activeTab, setActiveTab, onOpenFranchiseModal }
                 OWN A BURGER NATION FRANCHISE
               </button>
 
-              <button
-                onClick={() => handleTabClick("menu")}
+              <a
+                href={ORDER_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => setMobileMenuOpen(false)}
                 className="w-full rounded-2xl border border-white/20 bg-white/5 py-3 text-center text-sm font-semibold tracking-wider text-white active:scale-95 transition-transform"
               >
-                VIEW FULL MENU & ORDER
-              </button>
+                ORDER ONLINE
+              </a>
             </div>
           </motion.div>
         )}

@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { ORDER_URL } from "../../data/orderLinks";
 
 const springCfg = { type: "spring" as const, stiffness: 210, damping: 22 };
 
@@ -97,7 +98,7 @@ export default function OrderFab() {
           aria-label="Order now"
           onMouseEnter={() => setHover(true)}
           onMouseLeave={() => setHover(false)}
-          onClick={() => document.getElementById("menu")?.scrollIntoView({ behavior: "smooth" })}
+          onClick={() => window.open(ORDER_URL, "_blank", "noopener,noreferrer")}
           className="absolute inset-y-0 right-0 h-14 w-full rounded-full cursor-pointer shadow-[0_10px_30px_rgba(255,90,0,0.4)]"
           style={{ background: "transparent" }}
         />
